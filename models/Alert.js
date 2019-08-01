@@ -2,7 +2,16 @@ import { Schema, model } from 'mongoose';
 import User from './User';
 
 const AlertSchema = new Schema({
-	type: String,
+	type: {
+		type: String,
+		required: false,
+		default: '',
+	},
+	description: {
+		type: String,
+		required: false,
+		default: '',
+	},
 	users: [User],
 });
 
