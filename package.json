@@ -1,0 +1,24 @@
+{
+	"name": "icacalert",
+	"version": "1.0.0",
+	"description": "icacalert project competition",
+	"main": "server.js",
+	"repository": "https://github.com/williamjosh/icacalert.git",
+	"author": "williamjosh <williamjosh121@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"server": "nodemon --exec babel-node server.js"
+	},
+	"dependencies": {
+		"apollo-server-express": "^2.8.1",
+		"express": "^4.17.1",
+		"graphql": "^14.4.2",
+		"merge-graphql-schemas": "^1.7.0",
+		"mongoose": "^5.6.7"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.5.5",
+		"@babel/node": "^7.5.5",
+		"@babel/preset-env": "^7.5.5"
+	}
+}
