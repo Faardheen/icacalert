@@ -21,12 +21,12 @@ export const tryLogin = async (email, password, model, SECRET) => {
 	if (!user) {
 		return {
 			ok: false,
-			errors: [{ path: 'email', message: 'Wrong email' }],
+			errors: { path: 'email', message: 'Wrong email' },
 		};
 	}
 
-    const valid = await bcrypt.compare(password, user.password);
-    
+	const valid = await bcrypt.compare(password, user.password);
+
 	if (!valid) {
 		return {
 			ok: false,
