@@ -7,7 +7,7 @@ import showErr from '../showErr';
 
 export default {
 	Mutation: {
-		register: async (_, args, context) => {
+		register: async (_, args) => {
 			let errMsg = '';
 			const { email, phone, password } = args;
 			const hashedPassword = await bcrypt.hash(password, 12);
