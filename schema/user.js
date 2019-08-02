@@ -15,14 +15,14 @@ export default gql`
 	type RegisterResponse {
 		ok: Boolean!
 		user: User
-		errors: [Error!]
+		errors: Error
 	}
 
 	type LoginResponse {
 		ok: Boolean!
 		user: User
 		token: String
-		errors: [Error!]
+		errors: Error
 	}
 
 	type Mutation {

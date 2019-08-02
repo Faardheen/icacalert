@@ -4,6 +4,7 @@ import Routes from './routes';
 import { ApolloProvider } from 'react-apollo';
 import 'semantic-ui-css/semantic.min.css';
 import client from './apollo';
+require('./public/index.css');
 
 class App extends React.Component {
 	render() {
