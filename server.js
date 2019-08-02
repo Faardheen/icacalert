@@ -4,6 +4,7 @@ import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import { db, port } from './bin/config';
 import path from 'path';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 const SECRET = 'DlkwndalkwndaLXndwlkx'
 
@@ -14,6 +15,8 @@ const resolvers = mergeResolvers(
 
 const startServer = () => {
 	const app = express();
+
+	app.use(cors('*'));
 
 	mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true });
 
