@@ -1,9 +1,11 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
-import { db, port } from './bin/config'
+import { db, port } from './bin/config';
 import path from 'path';
 import mongoose from 'mongoose';
+
+const SECRET = 'DlkwndalkwndaLXndwlkx'
 
 const typeDefs = mergeTypes(fileLoader(path.join(__dirname, './schema')));
 const resolvers = mergeResolvers(
@@ -13,15 +15,18 @@ const resolvers = mergeResolvers(
 const startServer = () => {
 	const app = express();
 
-	mongoose.connect(db, { useNewUrlParser: true });
+	mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true });
 
 	new ApolloServer({
 		typeDefs,
 		resolvers,
+		context: {
+			SECRET
+		}
 	}).applyMiddleware({ app });
 
 	app.listen({ port }, () => {
-		console.log(`Server runnning on port ${port}`)
+		console.log(`Server runnning on port ${port}`);
 	});
 };
 
