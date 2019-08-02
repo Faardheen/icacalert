@@ -30,7 +30,7 @@ export const tryLogin = async (email, password, model, SECRET) => {
 	if (!valid) {
 		return {
 			ok: false,
-			errors: [{ path: 'password', message: 'Wrong password' }],
+			errors: { path: 'password', message: 'Wrong password' },
 		};
 	}
 
