@@ -8,7 +8,7 @@ export default gql`
 		id: Int!
 		email: String!
 		password: String!
-		phone: Int!
+		phone: String!
 		alerts: [Alert!]!
 	}
 
@@ -21,14 +21,15 @@ export default gql`
 	type LoginResponse {
 		ok: Boolean!
 		user: User
+		token: String
 		errors: [Error!]
 	}
 
 	type Mutation {
 		register(
-			email: String
+			email: String!
 			password: String!
-			phone: Int
+			phone: String!
 		): RegisterResponse!
 		login(email: String!, password: String!): LoginResponse!
 	}

@@ -5,6 +5,8 @@ import { db, port } from './bin/config';
 import path from 'path';
 import mongoose from 'mongoose';
 
+const SECRET = 'DlkwndalkwndaLXndwlkx'
+
 const typeDefs = mergeTypes(fileLoader(path.join(__dirname, './schema')));
 const resolvers = mergeResolvers(
 	fileLoader(path.join(__dirname, './resolvers')),
@@ -18,6 +20,9 @@ const startServer = () => {
 	new ApolloServer({
 		typeDefs,
 		resolvers,
+		context: {
+			SECRET
+		}
 	}).applyMiddleware({ app });
 
 	app.listen({ port }, () => {

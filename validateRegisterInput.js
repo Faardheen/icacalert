@@ -6,6 +6,7 @@ export default data => {
 
 	data.email = !isEmpty(data.email) ? data.email : '';
 	data.password = !isEmpty(data.password) ? data.password : '';
+	data.phone = !isEmpty(data.phone) ? data.phone : '';
 
 	if (Validator.isEmpty(data.email)) {
 		errors.email = 'Email field is required';
@@ -21,5 +22,9 @@ export default data => {
 		errors.password = 'Password must be at least 6 characters';
 	}
 
+	if (Validator.isEmpty(data.phone)) {
+		errors.phone = 'Invalid Phone Number';
+	}
+	
 	return { errors, isValid: isEmpty(errors) };
 };
