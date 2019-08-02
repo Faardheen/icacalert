@@ -12,7 +12,10 @@ const AlertSchema = new Schema({
 		required: false,
 		default: '',
 	},
-	users: [User],
+	user: {
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	}
 });
 
 export default model('Alert', AlertSchema);

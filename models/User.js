@@ -1,16 +1,26 @@
 import { Schema, model } from 'mongoose';
-// import Alert from './Alert';
 
 const UserSchema = new Schema({
 	email: {
 		type: String,
 		unique: true,
+		required: true,
 	},
-	password: String,
-	phone: {
-		type: Number,
+	password: {
+		type: String,
+		required: true,
 		unique: true,
 	},
+	phone: {
+		type: Number,
+		required: true,
+	},
+	alerts: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Alert',
+		},
+	],
 });
 
 export default model('User', UserSchema);
