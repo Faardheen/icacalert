@@ -3,4 +3,8 @@
 body {
 	line-height: 1.5em;
 	font-family: 'Lato', sans-serif;
+	background-color: #F4F7FC;
+	margin: 0px;
+	padding: 0px;
+	overflow-y: hidden;
 }
