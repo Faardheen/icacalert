@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-
 body {
 	line-height: 1.5em;
 	font-family: 'Lato', sans-serif;
@@ -7,4 +5,9 @@ body {
 	margin: 0px;
 	padding: 0px;
 	overflow-y: hidden;
+}
+
+.routeName {
+	padding: 0px !important;
+	margin: 0px;
 }
