@@ -5,8 +5,9 @@ import { db, port } from './bin/config';
 import path from 'path';
 import mongoose from 'mongoose';
 import cors from 'cors';
+require('dotenv').config()
 
-const SECRET = 'DlkwndalkwndaLXndwlkx'
+const SECRET = process.env.SECRET;
 
 const typeDefs = mergeTypes(fileLoader(path.join(__dirname, './schema')));
 const resolvers = mergeResolvers(
@@ -18,14 +19,21 @@ const startServer = () => {
 
 	app.use(cors('*'));
 
-	mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true });
+	mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true }, (err, res) => {
+		if (err) {
+			console.log('mongodb failed to connect')
+			console.log(err);
+		} else {
+			console.log('connection success')
+		}
+	});
 
 	new ApolloServer({
 		typeDefs,
 		resolvers,
 		context: {
-			SECRET
-		}
+			SECRET,
+		},
 	}).applyMiddleware({ app });
 
 	app.listen({ port }, () => {
