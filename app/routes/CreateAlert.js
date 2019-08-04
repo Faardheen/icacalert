@@ -10,12 +10,12 @@ import {
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-class Login extends React.Component {
+class CreateAlert extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: '',
-			password: '',
+			type: '',
+			description: '',
 			err: '',
 		};
 		this.onChange = this.onChange.bind(this);
@@ -23,17 +23,15 @@ class Login extends React.Component {
 	}
 
 	async onSubmit() {
-		const { email, password } = this.state;
+		const { type, description } = this.state;
 		const response = await this.props.mutate({
-			variables: { email, password },
+			variables: { type, description },
 		});
 
-		const { ok, errors, token, refreshToken } = response.data.login;
+		const { ok, errors } = response.data.createAlert;
 
 		console.log(errors);
 		if (ok) {
-			localStorage.setItem('token', token);
-			localStorage.setItem('refreshToken', refreshToken);
 			this.props.history.push('/');
 		} else {
 			this.setState({
@@ -47,7 +45,7 @@ class Login extends React.Component {
 	}
 
 	render() {
-		const { email, password, err } = this.state;
+		const { type, description, err } = this.state;
 
 		const errList = [];
 
@@ -58,24 +56,23 @@ class Login extends React.Component {
 		return (
 			<Container text>
 				<Form>
-					<Header as='h2'>Login</Header>
+					<Header as='h2'>Create Alert</Header>
 					<Form.Field>
 						<Input
-							name='email'
+							name='type'
 							onChange={this.onChange}
-							placeholder='Email'
+							placeholder='Type of Corruption'
 							fluid
-							value={email}
+							value={type}
 						/>
 					</Form.Field>
 					<Form.Field>
 						<Input
-							name='password'
+							name='description'
 							onChange={this.onChange}
-							type='password'
-							placeholder='Password'
+							placeholder='Description'
 							fluid
-							value={password}
+							value={description}
 						/>
 					</Form.Field>
 					<Button type='button' primary onClick={this.onSubmit}>
@@ -94,12 +91,14 @@ class Login extends React.Component {
 	}
 }
 
-const loginMutation = gql`
-	mutation($email: String!, $password: String!) {
-		login(email: $email, password: $password) {
+const createAlertMutation = gql`
+	mutation($type: String!, $description: String) {
+		createAlert(type: $type, description: $description) {
 			ok
-			token
-			refreshToken
+			alert {
+				type
+				description
+			}
 			errors {
 				path
 				message
@@ -108,4 +107,4 @@ const loginMutation = gql`
 	}
 `;
 
-export default graphql(loginMutation)(Login);
+export default graphql(createAlertMutation)(CreateAlert);
