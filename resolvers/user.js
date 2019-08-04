@@ -33,8 +33,8 @@ export default {
 				return showErr(false, 'register', errMsg);
 			}
 		},
-		login: (_, { email, password }, { SECRET }) => {
-			return tryLogin(email, password, User, SECRET);
+		login: (_, { email, password }, { SECRET, SECRET2 }) => {
+			return tryLogin(email, password, User, SECRET, SECRET2);
 		},
 	},
 };
