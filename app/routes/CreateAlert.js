@@ -38,14 +38,14 @@ const options = [
 	{ key: 2, text: "Taking gratification to screen offender from punishment", value: 2 },
 	{ key: 3, text: "Public official using his office for gratification", value: 3 },
 	{ key: 4, text: "Bribery of or by a public official to influence the decision of a public body", value: 4 },
-	{ key: 6, text: "Traffic d’influence", value: 5 },
-	{ key: 7, text: "Public official taking gratification", value: 6 },
-	{ key: 8, text: "Bribery for procuring contracts", value: 7 },
-	{ key: 9, text: "Conflict of interests", value: 8 },
-	{ key: 10, text: "Treating of public official", value: 9 },
-	{ key: 11, text: "Receiving gift for a corrupt purpose", value: 10 },
-	{ key: 12, text: "Corruption of agent", value: 11 },
-	{ key: 13, text: "Corruption to provoke a serious offence", value: 12 },
+	{ key: 5, text: "Traffic d’influence", value: 5 },
+	{ key: 6, text: "Public official taking gratification", value: 6 },
+	{ key: 7, text: "Bribery for procuring contracts", value: 7 },
+	{ key: 8, text: "Conflict of interests", value: 8 },
+	{ key: 9, text: "Treating of public official", value: 9 },
+	{ key: 10, text: "Receiving gift for a corrupt purpose", value: 10 },
+	{ key: 11, text: "Corruption of agent", value: 11 },
+	{ key: 12, text: "Corruption to provoke a serious offence", value: 12 },
 ];
 
 class CreateAlert extends React.Component {
