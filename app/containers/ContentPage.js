@@ -4,7 +4,6 @@ import Districts from '../components/Districts';
 import InfoPage from '../components/InfoPage';
 import ContentPage from '../components/ContentPage';
 
-import { Header } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 const DistrictList = styled.ul`
@@ -14,13 +13,13 @@ const DistrictList = styled.ul`
 const DistrictListItem = styled.li`
 	list-style-type: none;
 	margin: 2rem 0rem;
-	border-bottom: 2px solid #efefef;
+	border-bottom: 2px solid #FAFAFA;
 	border-bottom-style: solid;
 `;
 
 const district = ({ id, name }) => (
 	<DistrictListItem key={id}>
-		<Header as='h3'>{name}</Header>
+		<h3 className='district-header'>{name}</h3>
 	</DistrictListItem>
 );
 

@@ -1,11 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Sidebar = styled.div`
-	background-color: #033875;
-	padding-right: 0px !important;
-`;
-
 const SidebarList = styled.ul`
 	list-style: none;
 	padding: 0px;
@@ -17,21 +12,26 @@ const SidebarList = styled.ul`
 const SidebarItem = styled.li`
 	text-align: center;
 	color: white;
-	padding: 20px;
+	padding: 20px 0px;
+`;
+
+const SidebarLink = styled.a`
+	color: white;
+	&:hover {
+		color: white;
+	}
 `;
 
 export default () => (
-	<Sidebar className='column'>
-		<SidebarList>
-			<SidebarItem>
-				<i className='home icon' />
-			</SidebarItem>
-			<SidebarItem>
-				<i className='flag icon' />
-			</SidebarItem>
-			<SidebarItem>
-				<i className='eye icon' />
-			</SidebarItem>
-		</SidebarList>
-	</Sidebar>
+	<SidebarList>
+		<SidebarItem>
+			<SidebarLink href='/'><i className='home icon' /></SidebarLink>
+		</SidebarItem>
+		<SidebarItem>
+			<SidebarLink href=""><i className='flag icon' /></SidebarLink>
+		</SidebarItem>
+		<SidebarItem>
+			<SidebarLink href=""><i className='eye icon' /></SidebarLink>
+		</SidebarItem>
+	</SidebarList>
 );
