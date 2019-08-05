@@ -6,7 +6,6 @@ import { ALERT_ERR } from '../constants';
 export default {
 	Query: {
 		allAlerts: async (parent, args, context) => {
-
 			try {
 				const alerts = await Alert.find({}).populate('user');
 				return alerts;
@@ -23,8 +22,8 @@ export default {
 				const currentUser = await User.findById(user.id);
 				alert.user = currentUser;
 				await alert.save(alert);
-				currentUser.alerts.push(alert)
-				await currentUser.save()
+				currentUser.alerts.push(alert);
+				await currentUser.save();
 				return { ok: true, alert };
 			} catch (err) {
 				return showErr(false, 'alert', ALERT_ERR);

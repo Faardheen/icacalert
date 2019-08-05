@@ -1,13 +1,35 @@
 body {
 	line-height: 1.5em;
 	font-family: 'Lato', sans-serif;
-	background-color: #F4F7FC;
 	margin: 0px;
 	padding: 0px;
-	overflow-y: hidden;
+	overflow-y: hidden !important;
 }
 
 .routeName {
 	padding: 0px !important;
 	margin: 0px;
+	color: #aaaaaa !important;
+}
+
+.nav-link {
+	padding: 0px 10px;
+	color: #757575;
+}
+
+.nav-link:hover {
+	color: #757575;
+}
+
+.right-menu-item {
+	margin-right: 60px !important;
+}
+
+.district-header {
+	color: #757575;
+}
+
+.district-header:hover {
+	color: #033875;
+	cursor: pointer;
 }
